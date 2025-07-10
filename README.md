@@ -198,4 +198,4 @@ This project is licensed under the ISC License.
 
 ## Author
 
-Created as part of a Node.js learning curriculum - Day 4 Task.
+Created by Ahmed Waleed Bin Yunus (C) - Day 4 Task.
