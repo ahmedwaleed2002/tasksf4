@@ -291,72 +291,81 @@ All operations are automatically logged to `operationLogs.txt` with timestamps:
 The following screenshots demonstrate the CLI Logger tool in action:
 
 ### 1. Interactive Menu System
-**Screenshot Name**: `interactive-menu.png`
-**Description**: Shows the main interactive menu with numbered options (1-6)
+**Screenshot**: `interactive-menu.png`
+
+This screenshot shows the main interactive menu interface that appears when running the CLI logger without any arguments. The interface displays a welcome message, numbered menu options (1-6), and prompts the user to make a selection.
 
 ![Interactive Menu System](interactive-menu.png)
 
-**What to capture**: 
-- Welcome message
-- Menu options display
-- User input prompt
+### 2. Command Help Documentation
+**Screenshot**: `command-help.png`
 
-### 2. Write Log Operation
-**Screenshot Name**: `write-log-demo.png`
-**Description**: Demonstrates writing a log message interactively
-**What to capture**: 
-- Option 1 selection
-- Log message input
-- Success confirmation
-- Continue prompt
+This shows the comprehensive help system accessed via `node cli-logger.js help`. It displays all available commands with their usage syntax, examples, and detailed descriptions of both interactive and direct command modes.
 
-### 3. Read Logs Operation
-**Screenshot Name**: `read-logs-demo.png`
-**Description**: Shows reading and displaying log contents
-**What to capture**: 
-- Option 2 selection
-- Log contents with timestamps
-- Formatted output display
+![Command Help](command-help.png)
 
-### 4. System Information Display
-**Screenshot Name**: `system-info-demo.png`
-**Description**: Demonstrates system information feature
-**What to capture**: 
-- Option 4 selection
-- System details (memory, CPU, platform)
-- Formatted system info output
+### 3. Direct Write Command
+**Screenshot**: `write-command.png`
 
-### 5. Clear Logs with Confirmation
-**Screenshot Name**: `clear-logs-demo.png`
-**Description**: Shows the clear operation with safety confirmation
-**What to capture**: 
-- Option 3 selection
-- Confirmation dialog
-- Success message
+Demonstrates the direct command usage for writing log messages. Shows the execution of `node cli-logger.js write "message"` with the success confirmation output.
 
-### 6. Direct Command Usage
-**Screenshot Name**: `direct-commands-demo.png`
-**Description**: Demonstrates direct command usage (non-interactive)
-**What to capture**: 
-- `node cli-logger.js write "message"` command
-- `node cli-logger.js read` command
-- `node cli-logger.js help` command
+![Write Command](write-command.png)
 
-### 7. Help System
-**Screenshot Name**: `help-system-demo.png`
-**Description**: Shows comprehensive help information
-**What to capture**: 
-- Option 5 selection or `node cli-logger.js help`
-- Complete help documentation
-- Usage examples
+### 4. Reading Log Contents
+**Screenshot**: `read-logs.png`
 
-### 8. Operation Logs Audit Trail
-**Screenshot Name**: `operation-logs-demo.png`
-**Description**: Shows the audit trail of all operations
-**What to capture**: 
-- Contents of `operationLogs.txt`
-- Timestamped operation entries
-- Different operation types logged
+Displays the output of `node cli-logger.js read` command, showing how logged messages are presented with timestamps in a formatted layout between "LOG CONTENTS" and "END OF LOGS" markers.
+
+![Read Logs](read-logs.png)
+
+### 5. System Information Display
+**Screenshot**: `system-info.png`
+
+Shows the system information feature accessed via `node cli-logger.js info`. Displays detailed system metrics including platform, hostname, memory usage (total and free), CPU cores, and system uptime.
+
+![System Information](system-info.png)
+
+### 6. Multiple Log Entries
+**Screenshot**: `multiple-logs.png`
+
+Demonstrates multiple timestamped log entries created over time. This shows how the logger maintains chronological order and proper timestamp formatting for each log entry.
+
+![Multiple Logs](multiple-logs.png)
+
+### 7. Clear Logs Operation
+**Screenshot**: `clear-logs.png`
+
+Shows the execution of `node cli-logger.js clear` command with the success confirmation message indicating that all logs have been cleared from the log file.
+
+![Clear Logs](clear-logs.png)
+
+### 8. Interactive Write Mode
+**Screenshot**: `interactive-write.png`
+
+Demonstrates the interactive menu in action, showing option selection, message input prompt, and the flow of writing a log message through the numbered menu interface.
+
+![Interactive Write](interactive-write.png)
+
+### 9. Error Handling
+**Screenshot**: `error-handling.png`
+
+Displays the error handling mechanism when invalid input is provided (such as empty messages), showing user-friendly error messages and usage guidance.
+
+![Error Handling](error-handling.png)
+
+### 10. Unknown Command Handling
+**Screenshot**: `unknown-command.png`
+
+Shows how the CLI tool handles invalid or unknown commands, providing helpful error messages and directing users to the help system or interactive mode.
+
+![Unknown Command](unknown-command.png)
+
+### 11. Operation Logs Audit Trail
+**Screenshot**: `operation-logs.png`
+
+Displays the contents of `operationLogs.txt`, showing the automatic audit trail of all operations performed with timestamps and operation details for tracking and debugging purposes.
+
+![Operation Logs](operation-logs.png)
 
 ## Development Notes
 

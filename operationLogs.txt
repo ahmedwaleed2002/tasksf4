@@ -23,3 +23,19 @@
 [2025-07-10T07:07:42.218Z] Operation: HELP - Help displayed
 [2025-07-10T07:08:04.819Z] Operation: CLEAR - All logs cleared
 [2025-07-10T07:08:11.344Z] Operation: WRITE - Message: "weqweqwe"
+[2025-07-10T11:20:01.376Z] Operation: HELP - Help displayed
+[2025-07-10T11:21:36.322Z] Operation: WRITE - Message: "This is my first log entry"
+[2025-07-10T11:23:45.318Z] Operation: READ - Logs displayed successfully
+[2025-07-10T11:43:59.569Z] Operation: INFO - System information displayed
+[2025-07-10T11:49:08.565Z] Operation: WRITE - Message: "Application started"
+[2025-07-10T11:49:33.752Z] Operation: WRITE - Message: "Application started"
+[2025-07-10T11:49:33.869Z] Operation: WRITE - Message: "User login successful"
+[2025-07-10T11:49:34.084Z] Operation: WRITE - Message: "Data processing complete"
+[2025-07-10T11:51:18.176Z] Operation: READ - Logs displayed successfully
+[2025-07-10T12:21:24.221Z] Operation: CLEAR - All logs cleared
+[2025-07-10T12:21:29.907Z] Operation: READ - Logs displayed successfully
+[2025-07-10T12:22:27.219Z] Operation: WRITE - Message: "waleed is usin interactive cli"
+[2025-07-10T12:24:06.091Z] Operation: ERROR - Unknown command: invalid-command
+[2025-07-10T12:25:18.610Z] Operation: WRITE - Message: "waleed"
+[2025-07-10T12:25:25.902Z] Operation: INFO - System information displayed
+[2025-07-10T12:25:33.251Z] Operation: HELP - Help displayed
