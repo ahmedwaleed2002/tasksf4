@@ -1,0 +1,35 @@
+{
+  "name": "cli-logger-tool",
+  "version": "1.0.0",
+  "description": "A Node.js CLI tool for managing logs with write, read, and clear operations",
+  "main": "cli-logger.js",
+  "scripts": {
+    "start": "node cli-logger.js",
+    "help": "node cli-logger.js help",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "cli-logger": "./cli-logger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedwaleed2002/tasksf4.git"
+  },
+  "keywords": [
+    "cli",
+    "logger",
+    "nodejs",
+    "command-line",
+    "logging",
+    "file-operations"
+  ],
+  "author": "Ahmed Waleed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedwaleed2002/tasksf4/issues"
+  },
+  "homepage": "https://github.com/ahmedwaleed2002/tasksf4#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
