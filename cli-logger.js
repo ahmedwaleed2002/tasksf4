@@ -129,9 +129,15 @@ function interactiveWrite() {
 // Help command
 function showHelp() {
     console.log('\n--- CLI LOGGER HELP ---');
-    console.log('Usage: node cli-logger.js <command> [options]');
+    console.log('Usage: node cli-logger.js [command] [options]');
     console.log('');
-    console.log('Commands:');
+    console.log('Interactive Mode:');
+    console.log('  node cli-logger.js             Start interactive menu (default)');
+    console.log('  node cli-logger.js interactive  Start interactive menu');
+    console.log('  node cli-logger.js menu         Start interactive menu');
+    console.log('  node cli-logger.js i            Start interactive menu');
+    console.log('');
+    console.log('Direct Commands:');
     console.log('  write <message>    Write a message to the log file');
     console.log('  write              Start interactive mode to write a message');
     console.log('  read               Read and display all logs');
@@ -140,13 +146,131 @@ function showHelp() {
     console.log('  help               Show this help message');
     console.log('');
     console.log('Examples:');
-    console.log('  node cli-logger.js write "This is my first log"');
-    console.log('  node cli-logger.js read');
-    console.log('  node cli-logger.js clear');
-    console.log('  node cli-logger.js info');
+    console.log('  node cli-logger.js                              # Interactive mode');
+    console.log('  node cli-logger.js write "This is my first log" # Direct command');
+    console.log('  node cli-logger.js read                         # Direct command');
+    console.log('  node cli-logger.js clear                        # Direct command');
+    console.log('  node cli-logger.js info                         # Direct command');
     console.log('--- END HELP ---\n');
     
     logOperation('HELP', '- Help displayed');
+}
+
+// Interactive menu system
+function showInteractiveMenu() {
+    console.log('\n=== CLI LOGGER - INTERACTIVE MODE ===');
+    console.log('Please select an option:');
+    console.log('1. Write a new log message');
+    console.log('2. Read all logs');
+    console.log('3. Clear all logs');
+    console.log('4. Show system information');
+    console.log('5. Show help');
+    console.log('6. Exit');
+    console.log('=====================================');
+    
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    
+    rl.question('Enter your choice (1-6): ', (choice) => {
+        handleMenuChoice(choice.trim(), rl);
+    });
+}
+
+// Handle menu choice
+function handleMenuChoice(choice, rl) {
+    switch (choice) {
+        case '1':
+            rl.question('Enter your log message: ', (message) => {
+                rl.close();
+                if (message.trim()) {
+                    writeLog(message);
+                    setTimeout(() => {
+                        askToContinue();
+                    }, 1000);
+                } else {
+                    console.log('Error: Message cannot be empty!');
+                    setTimeout(() => {
+                        askToContinue();
+                    }, 1000);
+                }
+            });
+            break;
+            
+        case '2':
+            rl.close();
+            readLogs();
+            setTimeout(() => {
+                askToContinue();
+            }, 1000);
+            break;
+            
+        case '3':
+            rl.question('Are you sure you want to clear all logs? (y/N): ', (confirm) => {
+                rl.close();
+                if (confirm.toLowerCase() === 'y' || confirm.toLowerCase() === 'yes') {
+                    clearLogs();
+                } else {
+                    console.log('Clear operation cancelled.');
+                }
+                setTimeout(() => {
+                    askToContinue();
+                }, 1000);
+            });
+            break;
+            
+        case '4':
+            rl.close();
+            showSystemInfo();
+            setTimeout(() => {
+                askToContinue();
+            }, 1000);
+            break;
+            
+        case '5':
+            rl.close();
+            showHelp();
+            setTimeout(() => {
+                askToContinue();
+            }, 1000);
+            break;
+            
+        case '6':
+            console.log('Thank you for using CLI Logger! Goodbye!');
+            rl.close();
+            logOperation('EXIT', '- User exited the application');
+            process.exit(0);
+            break;
+            
+        default:
+            console.log('Invalid choice! Please enter a number between 1-6.');
+            rl.close();
+            setTimeout(() => {
+                askToContinue();
+            }, 1000);
+    }
+}
+
+// Ask user if they want to continue
+function askToContinue() {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    
+    rl.question('\nWould you like to perform another operation? (y/N): ', (answer) => {
+        rl.close();
+        if (answer.toLowerCase() === 'y' || answer.toLowerCase() === 'yes') {
+            setTimeout(() => {
+                showInteractiveMenu();
+            }, 500);
+        } else {
+            console.log('Thank you for using CLI Logger! Goodbye!');
+            logOperation('EXIT', '- User exited the application');
+            process.exit(0);
+        }
+    });
 }
 
 // Main function to parse arguments and execute commands
@@ -155,13 +279,22 @@ function main() {
     
     if (args.length === 0) {
         console.log('Welcome to CLI Logger!');
-        showHelp();
+        console.log('Starting interactive mode...');
+        setTimeout(() => {
+            showInteractiveMenu();
+        }, 1000);
         return;
     }
     
     const command = args[0].toLowerCase();
     
     switch (command) {
+        case 'interactive':
+        case 'menu':
+        case 'i':
+            showInteractiveMenu();
+            break;
+            
         case 'write':
             if (args.length > 1) {
                 // Join all arguments after 'write' as the message
@@ -194,6 +327,7 @@ function main() {
         default:
             console.error(`Unknown command: ${command}`);
             console.log('Use "node cli-logger.js help" for available commands.');
+            console.log('Or run "node cli-logger.js" for interactive mode.');
             logOperation('ERROR', `- Unknown command: ${command}`);
     }
 }
