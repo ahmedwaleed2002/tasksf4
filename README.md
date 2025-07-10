@@ -293,6 +293,9 @@ The following screenshots demonstrate the CLI Logger tool in action:
 ### 1. Interactive Menu System
 **Screenshot Name**: `interactive-menu.png`
 **Description**: Shows the main interactive menu with numbered options (1-6)
+
+![Interactive Menu System](interactive-menu.png)
+
 **What to capture**: 
 - Welcome message
 - Menu options display
